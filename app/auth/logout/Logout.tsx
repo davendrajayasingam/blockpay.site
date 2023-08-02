@@ -17,7 +17,7 @@ export default function Logout()
             <div className='w-80 text-center'>
                 <h1 className='font-bold text-teal-500 text-4xl'>
                     <span>Logging out</span>
-                    <span><Spinner className='!text-teal-500' /></span>
+                    <span><Spinner /></span>
                 </h1>
                 <h2 className='mt-2 font-medium text-lg text-center text-slate-700'>
                     You will be automatically redirected to the home page in a few seconds.

@@ -1,8 +1,10 @@
-export default function Dashboard()
+type Props = {
+    invoices: InvoiceData[]
+}
+
+export default function Dashboard({ invoices }: Props)
 {
     return (
-        <div>
-            This is the Dashboard
-        </div>
+        <p>Welcome to your dashboards</p>
     )
 }

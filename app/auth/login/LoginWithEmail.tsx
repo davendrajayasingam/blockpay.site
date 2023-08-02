@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 
 import { isValidEmail } from '@/utils/helpers/authHelper'
-import DashboardSpinnerButton from '@/app/(ui)/DashboardSpinnerButton'
+import SpinnerButton from '@/app/(ui)/SpinnerButton'
 import DashboardTextInput from '@/app/(ui)/DashboardTextInput'
 
 type Props = {
@@ -57,14 +57,14 @@ export default function LoginWithEmail({ callbackUrl }: Props)
                     textPosition='center'
                 />
 
-                <DashboardSpinnerButton
+                <SpinnerButton
                     type='submit'
                     fullWidth
                     showSpinner={isSubmitting}
                     onClick={handleLogin}
                 >
                     Login with Email
-                </DashboardSpinnerButton>
+                </SpinnerButton>
 
                 {
                     message

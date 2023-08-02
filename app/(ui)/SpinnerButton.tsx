@@ -1,5 +1,5 @@
-import Spinner from '@/app/(ui)/Spinner'
 import { classNames } from '@/utils/helpers/tailwindHelper'
+import Spinner from '@/app/(ui)/Spinner'
 
 type Props = {
     type?: 'button' | 'submit',
@@ -10,7 +10,7 @@ type Props = {
     children: React.ReactNode
 }
 
-export default function DashboardSpinnerButton({
+export default function SpinnerButton({
     type = 'button',
     showSpinner = false,
     onClick = () => { },
@@ -28,18 +28,21 @@ export default function DashboardSpinnerButton({
                 onClick()
             }}
             className={classNames(
+                'relative min-w-[8rem]',
+                'h-11 px-8 py-2 rounded-lg shadow',
                 fullWidth ? 'w-full' : '',
-                'disabled:bg-slate-400',
-                'relative min-w-[8rem] h-11 px-8 py-2 bg-teal-500 hover:bg-teal-400 transition-colors text-teal-50 rounded-lg font-medium text-lg text-center shadow'
+                'disabled:bg-slate-400 disabled:cursor-not-allowed',
+                'transition-colors ease-in-out duration-300',
+                'font-medium text-lg text-center text-white',
+                disabled ? '' : 'bg-gradient-to-tr hover:bg-gradient-to-tr from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400',
             )}
             disabled={disabled || showSpinner}
         >
-            <span className={classNames(
-                showSpinner ? 'invisible' : 'visible'
-            )}>
-                {children}
-            </span>
-            {showSpinner && <Spinner className='absolute inset-0 h-full' />}
+            {
+                showSpinner
+                    ? <Spinner />
+                    : children
+            }
         </button>
     )
 }

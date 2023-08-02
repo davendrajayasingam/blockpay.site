@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply bg-sky-500 text-white font-bold py-3 px-6 rounded-md;
+  }
+
+  .label {
+    @apply block font-bold text-gray-400 mb-2;
+  }
+
+  .input {
+    @apply block p-2 w-full bg-transparent border border-white/10 rounded-md text-white outline-none focus:outline-none;
+  }
+
+  .invoice-title {
+    @apply text-2xl font-bold text-white;
+  }
+
+  .invoice-heading {
+    @apply text-xl font-bold text-slate-200;
+  }
+
+  .invoice-text {
+    @apply text-slate-400;
+  }
+
+  .title {
+    @apply text-2xl font-bold text-white;
+  }
+
+  .heading {
+    @apply text-xl font-bold text-slate-200;
+  }
+
+  .text {
+    @apply text-slate-400;
+  }
+
+  .separator {
+    @apply border-white/5;
+  }
+}
