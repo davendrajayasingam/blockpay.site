@@ -31,10 +31,10 @@ export default function SpinnerButton({
                 'relative min-w-[8rem]',
                 'h-11 px-8 py-2 rounded-lg shadow',
                 fullWidth ? 'w-full' : '',
-                'disabled:bg-slate-400 disabled:cursor-not-allowed',
+                'disabled:bg-slate-400/0 disabled:cursor-not-allowed',
                 'transition-colors ease-in-out duration-300',
                 'font-medium text-lg text-center text-white',
-                disabled ? '' : 'bg-gradient-to-tr hover:bg-gradient-to-tr from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400',
+                disabled ? '' : 'bg-indigo-500 hover:bg-indigo-400',
             )}
             disabled={disabled || showSpinner}
         >

@@ -9,11 +9,13 @@ type Props = {
     }
 }
 
-export default async function DashboardPage({ params }: { params: { invoiceId: string } })
+export default async function DashboardPage({ params }: Props)
 {
     const invoiceId = params.invoiceId
 
-    const invoiceData: InvoiceData = await fetch(getAbsolutePath(`/api/invoice/${invoiceId}`),
+    const promises = []
+
+    promises.push(fetch(getAbsolutePath(`/api/invoice/${invoiceId}`),
         {
             cache: 'no-store',
             method: 'GET',
@@ -21,7 +23,22 @@ export default async function DashboardPage({ params }: { params: { invoiceId: s
                 cookie: headers().get('cookie') ?? ''
             }
         })
-        .then(res => res.json())
+        .then(res => res.json()))
+
+    promises.push(fetch(getAbsolutePath(`/api/invoice/${invoiceId}/charges`),
+        {
+            cache: 'no-store',
+            method: 'GET',
+            headers: {
+                cookie: headers().get('cookie') ?? ''
+            }
+        })
+        .then(res => res.json()))
+
+    const responses = await Promise.all(promises)
+
+    const invoiceData: InvoiceData = responses[0]
+    const chargesData: ChargeData[] = responses[1]
 
     const invoiceNotFound = Object.keys(invoiceData).length === 0
 
@@ -29,7 +46,10 @@ export default async function DashboardPage({ params }: { params: { invoiceId: s
         {
             invoiceNotFound
                 ? <p className='text-rose-500'>Invoice not found!</p>
-                : <ManageInvoice invoiceData={invoiceData} />
+                : <ManageInvoice
+                    invoiceData={invoiceData}
+                    chargesData={chargesData}
+                />
         }
     </DashboardLayout>
 }

@@ -20,9 +20,13 @@ type InvoiceStatus =
     | 'Pending' //
     | 'Resolved' //
 
-// charge:confirmed
-// charge:created
-// charge:delayed
-// charge:failed
-// charge:pending
-// charge:resolved
+type ChargeData = {
+    // charge:confirmed
+    // charge:created
+    // charge:delayed
+    // charge:failed
+    // charge:pending
+    // charge:resolved
+    type: string,
+    timestamp: string,
+}

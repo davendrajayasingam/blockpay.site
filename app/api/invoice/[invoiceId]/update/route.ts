@@ -7,7 +7,7 @@ import { getToken } from 'next-auth/jwt'
 
 export async function POST(req: NextRequest)
 {
-    const invoiceId = req.url.split('/').pop()
+    const invoiceId = req.url.split('/').slice(-2)[0]
     if (!invoiceId)
     {
         return NextResponse.json({ message: 'Invalid arguments!' }, { status: 400 })

@@ -31,9 +31,9 @@ export async function POST(req: NextRequest)
             invoiceId
         },
         name: invoiceData.customerName,
-        description: invoiceData.memo
-        // cancel_url: `${process.env.VERCEL_URL}/dashboard/invoices/{invoiceId}`
-        // redirect_url: `${process.env.VERCEL_URL}/dashboard/invoices/{invoiceId}`
+        description: invoiceData.memo,
+        cancel_url: `${process.env.VERCEL_URL || process.env.NEXTAUTH_URL}/dashboard/invoices/${invoiceId}`,
+        redirect_url: `${process.env.VERCEL_URL || process.env.NEXTAUTH_URL}/dashboard/invoices/${invoiceId}`
     }
 
     const { data } = await fetch('https://api.commerce.coinbase.com/charges', {

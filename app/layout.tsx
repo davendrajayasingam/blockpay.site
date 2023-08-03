@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast'
 
 import Analytics from '@/utils/components/Analytics'
 
-const metadataTitle = 'Get Paid in Crypto | BTC | ETH | USDT | USDC'
+const metadataTitle = 'Pay With Crypto | BTC | ETH | USDT | USDC'
 const metadataDescription = 'Create invoices for your customers and accept cryptocurrency as payment.'
 
 export const metadata: Metadata = {
