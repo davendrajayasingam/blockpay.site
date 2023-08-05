@@ -1,6 +1,5 @@
 import { headers } from 'next/headers'
 
-import DashboardLayout from '@/app/dashboard/DashboardLayout'
 import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
 
 import ManageInvoice from './ManageInvoice'
@@ -37,7 +36,7 @@ export default async function DashboardPage({ params }: Props)
 
     const invoiceNotFound = Object.keys(invoiceData).length === 0
 
-    return <DashboardLayout>
+    return <>
         {
             invoiceNotFound
                 ? <p className='text-rose-500'>Invoice not found!</p>
@@ -46,5 +45,5 @@ export default async function DashboardPage({ params }: Props)
                     paymentsData={paymentsData}
                 />
         }
-    </DashboardLayout>
+    </>
 }

@@ -8,8 +8,10 @@ export const config = {
         '/api/invoice/create',
         '/api/invoice/update',
         '/api/invoice/delete',
-        '/api/dashboard/:function*',
-        '/dashboard/:path*'
+        '/api/invoices/:function*',
+        '/invoices/:path*'
+        // skip the middleware for the following routes
+        
     ]
 }
 

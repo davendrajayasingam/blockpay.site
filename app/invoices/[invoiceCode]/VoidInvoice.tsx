@@ -31,6 +31,14 @@ export default function VoidInvoice({ status, invoiceCode }: Props)
         })
     }
 
+    if (status === 'VOID')
+    {
+        return <p className='text flex items-center space-x-2'>
+            <LiaInfoCircleSolid className='text-2xl text-sky-500' />
+            <span>Note: This invoice is VOID.</span>
+        </p>
+    }
+
     if (voided || (status !== 'OPEN' && status !== 'VIEWED'))
     {
         return <p className='text flex items-center space-x-2'>

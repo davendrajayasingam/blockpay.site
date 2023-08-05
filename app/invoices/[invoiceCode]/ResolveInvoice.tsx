@@ -17,7 +17,7 @@ export default function ResolveInvoice({ status, invoiceCode }: Props)
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
     const [resolved, setResolved] = useState(false)
 
-    const handleVoidInvoice = () =>
+    const handleResolveInvoice = () =>
     {
         setDialogIsOpen(false)
 
@@ -65,12 +65,12 @@ export default function ResolveInvoice({ status, invoiceCode }: Props)
         </div>
 
         <DashboardDialog
-            title='Void this invoice?'
+            title='Resolve this invoice?'
             isOpen={dialogIsOpen}
             setIsOpen={setDialogIsOpen}
         >
             <p className='text text-center'>
-                Voiding this invoice will prevent it from being paid.
+                Choosing to resolve means that you accept the amount and mark the invoice as paid.
                 <br />
                 This action cannot be undone.
             </p>
@@ -78,9 +78,9 @@ export default function ResolveInvoice({ status, invoiceCode }: Props)
                 <button
                     type='button'
                     className='danger-button'
-                    onClick={handleVoidInvoice}
+                    onClick={handleResolveInvoice}
                 >
-                    Void Invoice
+                    Resolve Invoice
                 </button>
                 <button
                     type='button'

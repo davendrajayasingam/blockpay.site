@@ -2,8 +2,7 @@ import { headers } from 'next/headers'
 
 import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
 
-import Dashboard from './Dashboard'
-import DashboardLayout from './DashboardLayout'
+import Invoices from './Invoices'
 
 export default async function DashboardPage()
 {
@@ -17,7 +16,5 @@ export default async function DashboardPage()
     })
     .then(res => res.json())
 
-  return <DashboardLayout>
-    <Dashboard invoices={invoices} />
-  </DashboardLayout>
+  return <Invoices invoices={invoices} />
 }

@@ -16,7 +16,7 @@ export default function Invoices({ invoices }: Props)
 
         <div>
             <Link
-                href='/dashboard/invoices/new'
+                href='/invoices/new'
                 className='button'
             >
                 Create a new invoice
@@ -75,7 +75,7 @@ export default function Invoices({ invoices }: Props)
                                 </td>
                                 <td className='text-center'>
                                     <Link
-                                        href={`/dashboard/invoices/${invoice.invoiceCode}`}
+                                        href={`/invoices/${invoice.invoiceCode}`}
                                         className='button'
                                     >
                                         Manage

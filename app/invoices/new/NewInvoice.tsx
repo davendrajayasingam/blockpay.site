@@ -64,7 +64,7 @@ export default function NewInvoice({ fiatCurrencies }: Props)
 
         setIsSubmitting(true)
         axios.post('/api/invoice/create', payload)
-            .then(res => window.location.href = `/dashboard/invoices/${res.data}`)
+            .then(res => window.location.href = `/invoices/${res.data}`)
             .catch(err =>
             {
                 toast.error('Something went wrong')

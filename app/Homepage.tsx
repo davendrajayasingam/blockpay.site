@@ -4,7 +4,7 @@ export default function Homepage()
 {
     return (
         <div>
-            <Link href='/dashboard'>
+            <Link href='/invoices'>
                 Dashboard
             </Link>
         </div>
