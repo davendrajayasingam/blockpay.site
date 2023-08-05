@@ -1,4 +1,6 @@
-import DashboardLayout from '@/app/dashboard/DashboardLayout'
+import { classNames } from '@/utils/helpers/tailwindHelper'
+import { format } from 'date-fns'
+import Link from 'next/link'
 
 type Props = {
     invoices: InvoiceData[]
@@ -6,18 +8,85 @@ type Props = {
 
 export default function Invoices({ invoices }: Props)
 {
-    return <div>
+    return <div className='flex flex-col space-y-8'>
 
-        <p>Invoice</p>
+        <h1 className='title'>
+            Invoices
+        </h1>
 
         <div>
-            <a
+            <Link
                 href='/dashboard/invoices/new'
                 className='button'
             >
-                Create an invoice
-            </a>
+                Create a new invoice
+            </Link>
         </div>
+
+        {
+            invoices?.[0]
+            && <table className='border-separate border-spacing-y-8'>
+                <thead>
+                    <tr>
+                        <th className='text'>
+                            Status
+                        </th>
+                        <th className='text'>
+                            Date
+                        </th>
+                        <th className='text'>
+                            Code
+                        </th>
+                        <th className='text'>
+                            Customer Name
+                        </th>
+                        <th className='text'>
+                            Amount
+                        </th>
+                        <th className='text'>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        invoices.map(invoice => (
+                            <tr key={invoice.invoiceId}>
+                                <td className={classNames(
+                                    'font-bold text text-center',
+                                    invoice.status === 'OPEN' ? 'text-sky-500' : '',
+                                    invoice.status === 'VIEWED' ? 'text-amber-500' : '',
+                                    invoice.status === 'PAID' ? 'text-emerald-500' : '',
+                                    invoice.status === 'UNRESOLVED' ? 'text-rose-500' : '',
+                                )}>
+                                    {invoice.status}
+                                </td>
+                                <td className='text text-center'>
+                                    {format(new Date(invoice.createdAt), 'EEE, do MMM yyyy, K:mm a')}
+                                </td>
+                                <td className='text text-center'>
+                                    {invoice.invoiceCode}
+                                </td>
+                                <td className='text text-center'>
+                                    {invoice.customerName}
+                                </td>
+                                <td className='text text-center'>
+                                    {invoice.paymentCurrency} {invoice.paymentAmount}
+                                </td>
+                                <td className='text-center'>
+                                    <Link
+                                        href={`/dashboard/invoices/${invoice.invoiceCode}`}
+                                        className='button'
+                                    >
+                                        Manage
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        }
 
     </div>
 }

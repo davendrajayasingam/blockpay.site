@@ -38,7 +38,7 @@ export default function LoginWithEmail({ callbackUrl }: Props)
     return (
         <div className='p-4 flex flex-col items-center justify-center space-y-8 w-screen h-screen'>
 
-            <h1 className='font-primary text-teal-500 text-4xl'>
+            <h1 className='font-bold text-sky-500 text-4xl'>
                 Login
             </h1>
 

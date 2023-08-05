@@ -1,21 +1,21 @@
-import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
-import DashboardLayout from '../../DashboardLayout'
-import ManageInvoice from './ManageInvoice'
 import { headers } from 'next/headers'
+
+import DashboardLayout from '@/app/dashboard/DashboardLayout'
+import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
+
+import ManageInvoice from './ManageInvoice'
 
 type Props = {
     params: {
-        invoiceId: string
+        invoiceCode: string
     }
 }
 
 export default async function DashboardPage({ params }: Props)
 {
-    const invoiceId = params.invoiceId
+    const invoiceCode = params.invoiceCode
 
-    const promises = []
-
-    promises.push(fetch(getAbsolutePath(`/api/invoice/${invoiceId}`),
+    const invoiceData = await fetch(getAbsolutePath(`/api/invoice/${invoiceCode}`),
         {
             cache: 'no-store',
             method: 'GET',
@@ -23,9 +23,9 @@ export default async function DashboardPage({ params }: Props)
                 cookie: headers().get('cookie') ?? ''
             }
         })
-        .then(res => res.json()))
+        .then(res => res.json())
 
-    promises.push(fetch(getAbsolutePath(`/api/invoice/${invoiceId}/charges`),
+    const paymentsData = await fetch(getAbsolutePath(`/api/invoice/${invoiceCode}/payments`),
         {
             cache: 'no-store',
             method: 'GET',
@@ -33,12 +33,7 @@ export default async function DashboardPage({ params }: Props)
                 cookie: headers().get('cookie') ?? ''
             }
         })
-        .then(res => res.json()))
-
-    const responses = await Promise.all(promises)
-
-    const invoiceData: InvoiceData = responses[0]
-    const chargesData: ChargeData[] = responses[1]
+        .then(res => res.json())
 
     const invoiceNotFound = Object.keys(invoiceData).length === 0
 
@@ -48,7 +43,7 @@ export default async function DashboardPage({ params }: Props)
                 ? <p className='text-rose-500'>Invoice not found!</p>
                 : <ManageInvoice
                     invoiceData={invoiceData}
-                    chargesData={chargesData}
+                    paymentsData={paymentsData}
                 />
         }
     </DashboardLayout>

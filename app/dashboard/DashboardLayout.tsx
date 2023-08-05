@@ -1,6 +1,7 @@
 'use client'
 
 import { Fragment, useState } from 'react'
+import Link from 'next/link'
 import { Dialog, Transition } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
 
@@ -39,7 +40,7 @@ export default function DashboardLayout({ children }: Props)
                         <ul role='list' className='-mx-2 space-y-1'>
                             {navigation.map((item) => (
                                 <li key={item.name}>
-                                    <a
+                                    <Link
                                         href={item.href}
                                         className={classNames(
                                             item.current
@@ -50,7 +51,7 @@ export default function DashboardLayout({ children }: Props)
                                     >
                                         <item.icon className='h-6 w-6 shrink-0' aria-hidden='true' />
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

@@ -34,7 +34,7 @@ export default function SpinnerButton({
                 'disabled:bg-slate-400/0 disabled:cursor-not-allowed',
                 'transition-colors ease-in-out duration-300',
                 'font-medium text-lg text-center text-white',
-                disabled ? '' : 'bg-indigo-500 hover:bg-indigo-400',
+                disabled ? '' : 'bg-sky-500 hover:bg-sky-400',
             )}
             disabled={disabled || showSpinner}
         >

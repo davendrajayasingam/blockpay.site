@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 import { client, q } from '@/utils/helpers/faunaHelper'
-import { INDEX_INVOICES_BY_USERID } from '@/configs/fauna'
+import { INDEX_INVOICES_BY_OWNER_ID } from '@/configs/fauna'
 
 export async function GET(req: NextRequest)
 {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest)
     const { data }: { data: InvoiceData[] } = await client.query(
         q.Map(
             q.Paginate(
-                q.Match(q.Index(INDEX_INVOICES_BY_USERID), userId),
+                q.Match(q.Index(INDEX_INVOICES_BY_OWNER_ID), userId),
                 { size: 10000 }
             ),
             q.Lambda('ref', q.Select(['data'], q.Get(q.Var('ref'))))

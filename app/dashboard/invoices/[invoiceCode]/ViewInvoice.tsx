@@ -1,10 +1,3 @@
-'use client'
-
-import SpinnerButton from '@/app/(ui)/SpinnerButton'
-import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
-import axios from 'axios'
-import { useState } from 'react'
-import { toast } from 'react-hot-toast'
 import { format } from 'date-fns'
 
 type Props = {
@@ -13,21 +6,6 @@ type Props = {
 
 export default function ViewInvoice({ invoiceData }: Props)
 {
-    const [isSubmitting, setIsSubmitting] = useState(false)
-
-    const handlePayment = () =>
-    {
-        setIsSubmitting(true)
-        axios.post(`/api/invoice/${invoiceData.invoiceId}/pay`, {})
-            .then(res => window.location.href = res.data.redirectUrl)
-            .catch(err =>
-            {
-                setIsSubmitting(false)
-                console.log(err)
-                toast.error('Something went wrong!')
-            })
-    }
-
     return <div className='bg-black/5 border border-white/5 p-4 rounded-md shadow-md flex flex-col space-y-8'>
 
         <div>
@@ -42,7 +20,7 @@ export default function ViewInvoice({ invoiceData }: Props)
                 Invoice Number: {invoiceData.invoiceId}
             </p>
             <p className='text'>
-                Dated: { format(new Date(invoiceData.createdAt), 'EEE, do MMM yyyy, K:mm a') }
+                Dated: {format(new Date(invoiceData.createdAt), 'EEE, do MMM yyyy, K:mm a')}
             </p>
         </div>
 
@@ -93,13 +71,12 @@ export default function ViewInvoice({ invoiceData }: Props)
                 Payment
             </h1>
             <div className='mt-2'>
-                <SpinnerButton
-                    type='submit'
-                    showSpinner={isSubmitting}
-                    onClick={handlePayment}
+                <a
+                    href={invoiceData.invoiceUrl}
+                    className='button'
                 >
-                    Pay
-                </SpinnerButton>
+                    View / Pay
+                </a>
             </div>
         </div>
 

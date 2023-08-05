@@ -1,7 +1,3 @@
-// Housekeeping
-export const COLLECTION_LOGDRAINS = 'LogDrain'
-export const COLLECTION_ERROR_REPORTS = 'ErrorReports'
-
 // Auth
 export const COLLECTION_AUTH_ACCOUNTS = 'accounts'
 export const COLLECTION_AUTH_SESSIONS = 'sessions'
@@ -15,8 +11,9 @@ export const INDEX_VERIFICATION_TOKEN_BY_IDENTIFIER_AND_TOKEN = 'verification_to
 
 // Invoices
 export const COLLECTION_INVOICES = 'Invoices'
-export const INDEX_INVOICES_BY_USERID = 'Invoices_By_UserID'
+export const INDEX_INVOICES_BY_OWNER_ID = 'Invoices_By_OwnerID'
+export const INDEX_INVOICE_BY_INVOICE_CODE = 'Invoice_By_InvoiceCode'
 
-export const COLLECTION_CHARGES = 'Charges'
-export const INDEX_CHARGES_BY_INVOICEID = 'Charges_By_InvoiceID'
-export const INDEX_CHARGES_BY_USERID = 'Charges_By_UserID'
+// Webhooks
+export const COLLECTION_WEBHOOKS = 'Webhooks'
+export const INDEX_WEBHOOK_EVENTS_BY_INVOICE_CODE = 'WebhookEvents_By_InvoiceCode'

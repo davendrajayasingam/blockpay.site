@@ -49,7 +49,7 @@ export default function DashboardTextInput({
                 onChange={e => onChange(e.target.value)}
                 className={classNames(
                     textPosition === 'left' ? 'text-left' : 'text-center',
-                    'h-11 p-2 text-lg bg-white text-slate-700 placeholder:text-slate-400 rounded-md w-full outline-none focus:outline-none focus:ring-teal-500 focus:border-teal-500'
+                    'h-11 p-2 text-lg bg-white text-slate-700 placeholder:text-slate-400 rounded-md w-full outline-none focus:outline-none focus:ring-sky-500 focus:border-sky-500'
                 )}
                 onWheel={e => e.currentTarget.blur()}
                 onBlur={e =>

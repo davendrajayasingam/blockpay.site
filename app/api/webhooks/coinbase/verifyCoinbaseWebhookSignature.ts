@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server'
 import crypto from 'crypto'
 
-const verifyWebhookSignature = async (req: NextRequest, rawBody: string) =>
+const verifyCoinbaseWebhookSignature = async (req: NextRequest, rawBody: string) =>
 {
     // get the X-CC-Webhook-Signature header
     const signature = req.headers.get('X-CC-Webhook-Signature')
@@ -15,4 +15,4 @@ const verifyWebhookSignature = async (req: NextRequest, rawBody: string) =>
     return gen_hmac === signature
 }
 
-export default verifyWebhookSignature
+export default verifyCoinbaseWebhookSignature

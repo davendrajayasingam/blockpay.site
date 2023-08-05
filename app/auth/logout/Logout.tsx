@@ -15,7 +15,7 @@ export default function Logout()
         <div className='p-4 flex flex-col items-center justify-center space-y-8 w-screen h-screen'>
 
             <div className='w-80 text-center'>
-                <h1 className='font-bold text-teal-500 text-4xl'>
+                <h1 className='font-bold text-sky-500 text-4xl'>
                     <span>Logging out</span>
                     <span><Spinner /></span>
                 </h1>

@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import faunaAdapterSetup from './faunaAdapterSetup'
-import faunaHousekeepingSetup from './faunaHousekeepingSetup'
 import faunaInvoicesSetup from './faunaInvoicesSetup'
-import faunaChargesSetup from './faunaChargesSetup'
+import faunaWebhooksSetup from './faunaWebhooksSetup'
 
 export async function GET(request: NextRequest)
 {
@@ -11,11 +10,9 @@ export async function GET(request: NextRequest)
 
     await faunaAdapterSetup(logs)
 
-    await faunaHousekeepingSetup(logs)
-
     await faunaInvoicesSetup(logs)
 
-    await faunaChargesSetup(logs)
+    await faunaWebhooksSetup(logs)
 
     return NextResponse.json(logs)
 }

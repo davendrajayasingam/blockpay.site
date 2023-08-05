@@ -28,18 +28,18 @@ export default function DashboardDialog({
                 {/* Container to center the panel */}
                 <div className='flex min-h-full items-center justify-center p-8'>
                     {/* The actual dialog panel  */}
-                    <Dialog.Panel className='mx-auto w-full max-w-screen-sm rounded-lg shadow p-8 bg-slate-100 border-2 border-teal-500'>
+                    <Dialog.Panel className='mx-auto w-full max-w-screen-sm rounded-lg shadow p-8 bg-gray-900 border-2 border-sky-500'>
+                        {/* Title */}
                         {
                             title
-                            && <Dialog.Title className='mb-1 font-bold text-2xl text-slate-700 text-center'>
+                            && <Dialog.Title className='mb-1 font-bold text-2xl text-sky-500 text-center'>
                                 {title}
                             </Dialog.Title>
                         }
-
-                        <div className='py-8'>
+                        {/* Contents */}
+                        <div className='pt-8'>
                             {children}
                         </div>
-
                     </Dialog.Panel>
                 </div>
             </div>
