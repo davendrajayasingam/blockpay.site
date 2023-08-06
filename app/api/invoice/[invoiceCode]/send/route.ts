@@ -41,7 +41,7 @@ export async function POST(req: NextRequest)
         
 We would like to bring to your attention an outstanding invoice that requires your prompt attention.
 
-Invoice Details: #${invoiceData.memo}
+Invoice Details: ${invoiceData.memo}
 Invoice Number: #${invoiceData.invoiceCode}
 Invoice Date: ${format(new Date(invoiceData.createdAt), 'EEE, do MMM yyyy, K:mm a')}
 Amount: ${invoiceData.paymentCurrency} ${invoiceData.paymentAmount}

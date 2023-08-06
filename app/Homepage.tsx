@@ -51,7 +51,7 @@ export default function Homepage()
                 />
 
                 <Link
-                    href={`/invoice/${invoiceCode}`}
+                    href={`/view/${invoiceCode}`}
                     className='button text-center'
                 >
                     View Invoice
