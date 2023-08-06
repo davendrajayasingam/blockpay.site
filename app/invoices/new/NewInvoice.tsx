@@ -54,7 +54,10 @@ export default function NewInvoice({ fiatCurrencies }: Props)
         try
         {
             // parsefloat to 2 decimal points
-            payload.paymentAmount = parseFloat(Number(payload.paymentAmount).toFixed(2))
+            // convert the string to number first
+            // the string may contain commas
+            const parsedAmount = parseFloat(payload.paymentAmount.replace(/,/g, ''))
+            payload.paymentAmount = parseFloat(Number(parsedAmount).toFixed(2))
         }
         catch (err)
         {
@@ -63,13 +66,15 @@ export default function NewInvoice({ fiatCurrencies }: Props)
         }
 
         setIsSubmitting(true)
-        axios.post('/api/invoice/create', payload)
+        const promise = axios.post('/api/invoice/create', payload)
             .then(res => window.location.href = `/invoices/${res.data}`)
-            .catch(err =>
-            {
-                toast.error('Something went wrong')
-                setIsSubmitting(false)
-            })
+            .catch(() => setIsSubmitting(false))
+
+        toast.promise(promise, {
+            loading: 'Creating a new invoice...',
+            success: 'Invoice created successfully!',
+            error: 'Something went wrong! Please try again.'
+        })
     }
 
     return (

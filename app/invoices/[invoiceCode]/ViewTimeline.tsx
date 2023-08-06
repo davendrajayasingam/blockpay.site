@@ -15,7 +15,13 @@ export default function ViewTimeline({ paymentsData }: Props)
         {
             acc.push(...curr.timeline)
         }
-        return acc
+
+        // remove duplicates
+        return acc.filter((timeline, index, self) => (
+            index === self.findIndex(t => (
+                t.time === timeline.time
+            ))
+        ))
     }, [])
 
     if (timelineData.length === 0)
@@ -23,7 +29,7 @@ export default function ViewTimeline({ paymentsData }: Props)
         return <p className='text'>No timeline yet.</p>
     }
 
-    return <table className='w-full'>
+    return <table className='w-full border-separate border-spacing-y-3'>
         <thead>
             <tr>
                 <th className='text p-2'>

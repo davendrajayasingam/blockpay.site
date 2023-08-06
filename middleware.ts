@@ -4,14 +4,11 @@ import { NextRequest } from 'next/server'
 export const config = {
     matcher: [
         '/api/invoice/',
-        '/api/invoice/charges',
         '/api/invoice/create',
-        '/api/invoice/update',
-        '/api/invoice/delete',
-        '/api/invoices/:function*',
-        '/invoices/:path*'
-        // skip the middleware for the following routes
-        
+        '/api/invoice/:function*',
+        '/api/contact/:function*',
+        '/invoices/:path*',
+        '/support/'
     ]
 }
 

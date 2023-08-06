@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  main {
+    @apply p-4;
+  }
+
   .button {
     @apply bg-sky-500 text-white font-bold py-3 px-6 rounded-md;
   }

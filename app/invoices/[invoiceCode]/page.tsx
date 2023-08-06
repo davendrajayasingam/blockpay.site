@@ -1,6 +1,8 @@
 import { headers } from 'next/headers'
 
+import DashboardHeader from '@/app/invoices/DashboardHeader'
 import { getAbsolutePath } from '@/utils/helpers/absolutePathHelper'
+import Footer from '@/app/Footer'
 
 import ManageInvoice from './ManageInvoice'
 
@@ -37,13 +39,17 @@ export default async function DashboardPage({ params }: Props)
     const invoiceNotFound = Object.keys(invoiceData).length === 0
 
     return <>
-        {
-            invoiceNotFound
-                ? <p className='text-rose-500'>Invoice not found!</p>
-                : <ManageInvoice
-                    invoiceData={invoiceData}
-                    paymentsData={paymentsData}
-                />
-        }
+        <DashboardHeader />
+        <main>
+            {
+                invoiceNotFound
+                    ? <p className='text-rose-500'>Invoice not found!</p>
+                    : <ManageInvoice
+                        invoiceData={invoiceData}
+                        paymentsData={paymentsData}
+                    />
+            }
+        </main>
+        <Footer />
     </>
 }

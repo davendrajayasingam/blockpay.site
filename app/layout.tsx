@@ -46,9 +46,7 @@ export default function RootLayout({ children }: Props)
     >
       <head />
       <body className='font-sans h-full'>
-        <main className='p-4'>
-          {children}
-        </main>
+        {children}
         <Analytics />
         <Toaster />
       </body>

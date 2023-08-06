@@ -66,9 +66,9 @@ const authOptions: AuthOptions = {
     },
     theme: {
         colorScheme: 'dark', // "auto" | "dark" | "light"
-        brandColor: '#14b8a6', // Hex color code
+        brandColor: '#0ea5e9', // Hex color code
         logo: '', // Absolute URL to image
-        buttonText: '#f0fdfa' // Hex color code
+        buttonText: '#f1f5f9' // Hex color code
     }
 }
 

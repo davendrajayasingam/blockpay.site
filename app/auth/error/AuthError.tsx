@@ -20,14 +20,14 @@ export default function AuthError({ errorCode }: { errorCode: string })
             case 'Verification':
                 return 'The sign in link is no longer valid. It may have been used already or it may have expired.'
             default:
-                return 'An unexpected authentication error has occurred. Please email support at hello@davendra.me'
+                return 'An unexpected authentication error has occurred. Please email support.'
         }
     }
 
     return (
         <div className='p-6 flex flex-col items-center justify-center space-y-8 w-full h-full max-w-[30rem] min-h-screen mx-auto'>
 
-            <h1 className='font-primary text-center text-amber-500 text-4xl'>
+            <h1 className='font-bold text-center text-amber-500 text-4xl'>
                 <span className='text-6xl'>
                     😟
                 </span>

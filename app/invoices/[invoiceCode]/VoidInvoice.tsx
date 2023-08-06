@@ -34,8 +34,8 @@ export default function VoidInvoice({ status, invoiceCode }: Props)
     if (status === 'VOID')
     {
         return <p className='text flex items-center space-x-2'>
-            <LiaInfoCircleSolid className='text-2xl text-sky-500' />
-            <span>Note: This invoice is VOID.</span>
+            <LiaInfoCircleSolid className='text-2xl text-rose-500' />
+            <span className='text-rose-500'>Note: This invoice is VOID.</span>
         </p>
     }
 
@@ -47,7 +47,7 @@ export default function VoidInvoice({ status, invoiceCode }: Props)
         </p>
     }
 
-    return <div className='flex flex-col space-y-4'>
+    return <div className='flex flex-col space-y-4 p-4 bg-black/10 rounded-md border border-white/10'>
 
         <h2 className='heading'>
             Void Invoice

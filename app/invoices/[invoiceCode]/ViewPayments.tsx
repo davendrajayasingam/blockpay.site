@@ -14,7 +14,7 @@ export default function ViewPayments({ paymentsData }: Props)
         return <p className='text'>No payments yet.</p>
     }
 
-    return <table className='w-full'>
+    return <table className='w-full border-separate border-spacing-y-3'>
         <thead>
             <tr>
                 <th className='text p-2'>
@@ -27,7 +27,7 @@ export default function ViewPayments({ paymentsData }: Props)
                     Date
                 </th>
                 <th className='text p-2'>
-                    Actions
+                    Action
                 </th>
             </tr>
         </thead>
@@ -41,6 +41,8 @@ export default function ViewPayments({ paymentsData }: Props)
                         local: `${event.net.local.currency} ${event.net.local.amount}`,
                         crypto: `${event.net.crypto.currency} ${event.net.crypto.amount}`
                     }))
+                    // remove duplicate events
+                    .filter((event, index, self) => index === self.findIndex(e => e.transactionId === event.transactionId))
                     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
                     .map(event => (
                         <tr

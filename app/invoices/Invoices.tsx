@@ -25,7 +25,7 @@ export default function Invoices({ invoices }: Props)
 
         {
             invoices?.[0]
-            && <table className='border-separate border-spacing-y-8'>
+            && <table className='border-separate border-spacing-y-3'>
                 <thead>
                     <tr>
                         <th className='text'>
@@ -44,14 +44,17 @@ export default function Invoices({ invoices }: Props)
                             Amount
                         </th>
                         <th className='text'>
-                            Actions
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         invoices.map(invoice => (
-                            <tr key={invoice.invoiceId}>
+                            <tr 
+                            key={invoice.invoiceId}
+                            className='h-16 bg-black/20 border border-white/5 p-4 rounded-md shadow-md'
+                            >
                                 <td className={classNames(
                                     'font-bold text text-center',
                                     invoice.status === 'OPEN' ? 'text-sky-500' : '',
@@ -78,7 +81,7 @@ export default function Invoices({ invoices }: Props)
                                         href={`/invoices/${invoice.invoiceCode}`}
                                         className='button'
                                     >
-                                        Manage
+                                        View
                                     </Link>
                                 </td>
                             </tr>

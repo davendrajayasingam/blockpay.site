@@ -44,7 +44,7 @@ export default function ResolveInvoice({ status, invoiceCode }: Props)
         </p>
     }
 
-    return <div className='flex flex-col space-y-4'>
+    return <div className='flex flex-col space-y-4 p-4 bg-black/10 rounded-md border border-white/10'>
 
         <h2 className='heading'>
             Resolve Invoice

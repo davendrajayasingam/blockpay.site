@@ -4,8 +4,8 @@ export default function VerifyRequest()
     return (
         <div className='p-4 flex flex-col items-center justify-center space-y-8 w-screen h-screen'>
 
-            <div className='w-80 text-center'>
-                <h1 className='font-primary text-sky-500 text-4xl'>
+            <div className='w-80 font-bold text-center'>
+                <h1 className='font-bold text-sky-500 text-4xl'>
                     Check your email
                 </h1>
                 <h2 className='mt-2 font-medium text-lg text-center text-slate-400'>

@@ -5,13 +5,13 @@ import verifyApiRequest from '@/app/api/verifyApiRequest'
 import { client, q } from '@/utils/helpers/faunaHelper'
 import { COLLECTION_INVOICES } from '@/configs/fauna'
 
-import createInvoiceSchema from './createInvoiceSchema'
+import schema from './createInvoiceSchema'
 
 export async function POST(req: NextRequest)
 {
     const body: CreateInvoiceData = await req.json()
 
-    const verifiedApiRequest = await verifyApiRequest(body, createInvoiceSchema)
+    const verifiedApiRequest = await verifyApiRequest(body, schema)
     if (!verifiedApiRequest)
     {
         return NextResponse.json({ message: 'Invalid arguments!' }, { status: 400 })
@@ -71,19 +71,3 @@ export async function POST(req: NextRequest)
 
     return NextResponse.json(code, { status: 200 })
 }
-
-// Example coinbase response
-// data: {
-//     business_name: 'WEBSPLORER ENTERPRISE (3128072-M)',
-//     code: 'ZKCGNEYC',
-//     created_at: '2023-08-05T07:09:19Z',
-//     customer_email: 'hello@davendra.me',
-//     customer_name: 'Davendra Jayasingam',
-//     hosted_url: 'https://commerce.coinbase.com/invoices/ZKCGNEYC',
-//     id: 'd1647d4d-4888-46ef-b994-19939dddcd22',
-//     local_price: { amount: '1.00', currency: 'MYR' },
-//     memo: 'RM 1',
-//     resource: 'invoice',
-//     status: 'OPEN',
-//     updated_at: '2023-08-05T07:09:19Z'
-//   }

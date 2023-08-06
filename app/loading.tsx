@@ -1,9 +1,9 @@
-import Spinner from '@/app/(ui)/Spinner'
+import { BeatLoader } from 'react-spinners'
 
 export default function Loading()
 {
     return <div className='flex flex-col items-center justify-center min-h-screen'>
-        <Spinner label='Loading' />
+        <BeatLoader size={10} color='#0ea5e9' />
     </div>
 
 }

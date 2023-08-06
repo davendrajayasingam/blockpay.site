@@ -11,10 +11,6 @@ export default function NotFound()
                 Page Not Found
             </h1>
 
-            <h2 className='font-medium text-lg text-center text-sky-100'>
-                Please reach out to hello@davendra.me if you think this is a mistake.
-            </h2>
-
         </div>
     )
 }
