@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/helpers/tailwindHelper'
 import { format } from 'date-fns'
 
 type Props = {
@@ -10,15 +11,12 @@ export default function ViewInvoice({ invoiceData }: Props)
 
         <div>
             <h1 className='title'>
-                Invoice
+                Invoice #{invoiceData.invoiceCode}
             </h1>
             <hr className='separator' />
         </div>
 
         <div>
-            <p className='text'>
-                Invoice Number: {invoiceData.invoiceId}
-            </p>
             <p className='text'>
                 Dated: {format(new Date(invoiceData.createdAt), 'EEE, do MMM yyyy, K:mm a')}
             </p>
@@ -66,16 +64,36 @@ export default function ViewInvoice({ invoiceData }: Props)
             </div>
         }
 
+        {
+            invoiceData.memo
+            && <div>
+                <h1 className='heading'>
+                    Status
+                </h1>
+                <hr className='separator' />
+                <p className={classNames(
+                    'font-bold text mt-2',
+                    invoiceData.status === 'OPEN' ? 'text-sky-500' : '',
+                    invoiceData.status === 'VIEWED' ? 'text-amber-500' : '',
+                    invoiceData.status === 'PAID' ? 'text-emerald-500' : '',
+                    invoiceData.status === 'UNRESOLVED' ? 'text-rose-500' : '',
+                )}>
+                    {invoiceData.status}
+                </p>
+            </div>
+        }
+
         <div>
             <h1 className='heading'>
                 Payment
             </h1>
-            <div className='mt-2'>
+            <hr className='separator' />
+            <div className='my-4'>
                 <a
                     href={invoiceData.invoiceUrl}
                     className='button'
                 >
-                    Pay
+                    View / Pay
                 </a>
             </div>
         </div>
