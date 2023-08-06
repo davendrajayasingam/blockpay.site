@@ -18,11 +18,13 @@ export default async function DashboardPage()
     })
     .then(res => res.json())
 
-  return <>
-    <DashboardHeader />
-    <main>
-      <Invoices invoices={invoices} />
-    </main>
+  return <div className='flex flex-col justify-between min-h-screen'>
+    <div>
+      <DashboardHeader />
+      <main>
+        <Invoices invoices={invoices} />
+      </main>
+    </div>
     <Footer />
-  </>
+  </div>
 }

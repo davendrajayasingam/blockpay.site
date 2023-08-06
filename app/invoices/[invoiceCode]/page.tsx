@@ -16,7 +16,7 @@ export default async function DashboardPage({ params }: Props)
 {
     const invoiceCode = params.invoiceCode
 
-    const invoiceData = await fetch(getAbsolutePath(`/api/invoice/${invoiceCode}`),
+    const invoiceData = await fetch(getAbsolutePath(`/api/view/${invoiceCode}`),
         {
             cache: 'no-store',
             method: 'GET',

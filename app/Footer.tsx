@@ -1,10 +1,3 @@
-
-
-import Link from 'next/link'
-
-import Logo from './invoices/Logo'
-import { LiaFileInvoiceDollarSolid } from 'react-icons/lia'
-
 export default function Footer()
 {
     return (

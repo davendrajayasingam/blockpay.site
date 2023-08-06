@@ -75,7 +75,7 @@ export default function ViewInvoice({ invoiceData }: Props)
                     href={invoiceData.invoiceUrl}
                     className='button'
                 >
-                    View / Pay
+                    Pay
                 </a>
             </div>
         </div>

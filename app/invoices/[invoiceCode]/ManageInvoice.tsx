@@ -1,5 +1,6 @@
 import EmailSupport from './EmailSupport'
 import ResolveInvoice from './ResolveInvoice'
+import SendInvoice from './SendInvoice'
 import ViewInvoice from './ViewInvoice'
 import ViewPayments from './ViewPayments'
 import ViewTimeline from './ViewTimeline'
@@ -44,6 +45,11 @@ export default function ManageInvoice({ invoiceData, paymentsData }: Props)
             </h1>
             <hr className='separator mt-2 mb-4' />
             <div className='flex flex-col space-y-8'>
+                <SendInvoice
+                    customerName={invoiceData.customerName}
+                    invoiceCode={invoiceData.invoiceCode}
+                    status={invoiceData.status}
+                />
                 <ResolveInvoice
                     invoiceCode={invoiceData.invoiceCode}
                     status={invoiceData.status}

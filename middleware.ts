@@ -3,8 +3,6 @@ import { NextRequest } from 'next/server'
 
 export const config = {
     matcher: [
-        '/api/invoice/',
-        '/api/invoice/create',
         '/api/invoice/:function*',
         '/api/contact/:function*',
         '/invoices/:path*',
