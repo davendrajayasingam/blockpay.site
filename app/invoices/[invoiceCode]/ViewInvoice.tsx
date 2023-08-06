@@ -7,7 +7,7 @@ type Props = {
 
 export default function ViewInvoice({ invoiceData }: Props)
 {
-    return <div className='bg-black/5 border border-white/5 p-4 rounded-md shadow-md flex flex-col space-y-8'>
+    return <div className='bg-black/5 border border-sky-500 p-4 rounded-md shadow-md flex flex-col space-y-8'>
 
         <div>
             <h1 className='title'>
