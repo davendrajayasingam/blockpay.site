@@ -1,15 +1,4 @@
-type InvoiceItem = {
-    name: string,
-    description: string,
-    quantity: number,
-    price: number
-}
-
 type CreateInvoiceData = {
-    // invoiceNumber: string
-    // invoiceItems: InvoiceItem[]
-    // invoiceIssueDate: string
-    // paymentDueDate: string
     paymentCurrency: string
     paymentAmount: string
     customerName: string
