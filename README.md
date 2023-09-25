@@ -1,3 +1,22 @@
+# Scenario
+
+PathLabs is launching a web3 fintech product. The product allows users to create invoices for their customers and accept cryptocurrency as payment. The Available currency options: BTC, ETH, USDT, USDC
+
+A technical presentation will be arranged with the audience being the CTO, product manager & developer. Please prepare for the presentation with slides on the following:
+  
+- Technical solution explained using UML diagrams.
+- Description of security measures implemented.
+- Strategies for scaling up the product.
+- Approach to handling transaction disputes.
+  
+You are also required to produce an MVP that would be able to demonstrate the said requirements. Frontend does not have to be fancy.
+
+*Note : The UML should cater to both technical and non-technical audiences. The slides should be technical, and you can keep the non-technical explanation to the interview session.*
+
+# Presentation
+
+[Google Slides](https://docs.google.com/presentation/d/1S3OhSilFrPoLA5hbtzQT28I3aIEutGOzjcHPx1Xt56o/edit?usp=sharing)
+
 # Setup
 
 ## Environment Variables
